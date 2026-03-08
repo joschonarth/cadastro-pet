@@ -1,0 +1,222 @@
+<div class="min-h-screen bg-pastel-green p-4 md:p-8 flex items-center justify-center">
+  <div
+    class="max-w-2xl w-full bg-white rounded-2xl md:rounded-3xl shadow-xl p-6 md:p-10 border border-stone-100"
+  >
+    <header class="mb-8 text-center">
+      <h1 class="text-2xl md:text-3xl font-bold text-stone-800">Cadastro do Pet 🐾</h1>
+      <p class="text-sm md:text-base text-stone-500 mt-2">
+        Encontre um novo lar para seu amiguinho.
+      </p>
+    </header>
+
+    <form>
+      <div class="space-y-8">
+        <div class="space-y-4">
+          <div class="flex flex-col gap-1.5">
+            <label class="ml-1 text-sm font-bold text-stone-500 flex items-center gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-sage"></span>
+              Nome do Pet
+            </label>
+            <input
+              type="text"
+              name="petName"
+              ngModel
+              required
+              minlength="3"
+              class="form-input"
+              placeholder="Como ele se chama?"
+            />
+            @if(true) {
+            <p class="text-terracotta text-xs font-medium ml-1">
+              🐾 O nome é obrigatório (mín. 3 letras).
+            </p>
+            }
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <select name="species" ngModel required class="form-input">
+              <option value="" disabled selected>Espécie</option>
+              <option value="dog">Cão</option>
+              <option value="cat">Gato</option>
+              <option value="bird">Pássaro</option>
+            </select>
+
+            <input
+              type="number"
+              name="age"
+              ngModel
+              min="0"
+              max="30"
+              class="form-input"
+              placeholder="Idade (anos)"
+            />
+          </div>
+        </div>
+
+        <div
+          class="p-4 md:p-6 bg-pastel-green/40 rounded-2xl md:rounded-[2rem] border border-stone-100 space-y-6"
+        >
+          <p
+            class="text-[10px] md:text-xs font-black uppercase tracking-widest text-stone-400 mb-2"
+          >
+            Saúde & Comportamento
+          </p>
+
+          <label class="flex items-center gap-3 cursor-pointer w-fit">
+            <input
+              type="checkbox"
+              name="vaccinated"
+              ngModel
+              class="w-5 h-5 accent-sage text-sage border-stone-300 rounded focus:ring-sage"
+            />
+            <span class="text-sm text-stone-700 font-bold">Pet já está vacinado?</span>
+          </label>
+
+          <div>
+            <label class="block text-sm font-bold text-stone-500 mb-3">Porte do Pet</label>
+            <div class="flex flex-wrap gap-6">
+              <label
+                class="flex items-center gap-2 cursor-pointer text-sm text-stone-600 font-medium"
+              >
+                <input
+                  type="radio"
+                  name="size"
+                  ngModel
+                  value="small"
+                  class="w-4 h-4 accent-sage border-stone-300 focus:ring-sage"
+                  required
+                />
+                Pequeno
+              </label>
+              <label
+                class="flex items-center gap-2 cursor-pointer text-sm text-stone-600 font-medium"
+              >
+                <input
+                  type="radio"
+                  name="size"
+                  ngModel
+                  value="medium"
+                  class="w-4 h-4 accent-sage border-stone-300 focus:ring-sage"
+                  required
+                />
+                Médio
+              </label>
+              <label
+                class="flex items-center gap-2 cursor-pointer text-sm text-stone-600 font-medium"
+              >
+                <input
+                  type="radio"
+                  name="size"
+                  ngModel
+                  value="large"
+                  class="w-4 h-4 accent-sage border-stone-300 focus:ring-sage"
+                  required
+                />
+                Grande
+              </label>
+            </div>
+          </div>
+
+          <div ngModelGroup="temperament">
+            <label class="block text-sm font-bold text-stone-500 mb-3">Temperamento</label>
+            <div class="flex flex-wrap gap-6">
+              <label
+                class="flex items-center gap-2 cursor-pointer text-sm text-stone-600 font-medium"
+              >
+                <input
+                  type="checkbox"
+                  name="docile"
+                  ngModel
+                  class="w-4 h-4 accent-sage rounded border-stone-300 focus:ring-sage"
+                />
+                Dócil
+              </label>
+              <label
+                class="flex items-center gap-2 cursor-pointer text-sm text-stone-600 font-medium"
+              >
+                <input
+                  type="checkbox"
+                  name="active"
+                  ngModel
+                  class="w-4 h-4 accent-sage rounded border-stone-300 focus:ring-sage"
+                />
+                Agitado
+              </label>
+              <label
+                class="flex items-center gap-2 cursor-pointer text-sm text-stone-600 font-medium"
+              >
+                <input
+                  type="checkbox"
+                  name="protective"
+                  ngModel
+                  class="w-4 h-4 accent-sage rounded border-stone-300 focus:ring-sage"
+                />
+                Protetor
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div
+          ngModelGroup="shelterInfo"
+          class="p-4 md:p-6 bg-stone-50 rounded-2xl md:rounded-[2rem] border border-stone-200 space-y-4"
+        >
+          <p
+            class="text-[10px] md:text-xs font-black uppercase tracking-widest text-stone-400 mb-2"
+          >
+            Informações do Abrigo
+          </p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <input
+              type="text"
+              name="shelterName"
+              ngModel
+              required
+              class="form-input"
+              placeholder="Nome do Abrigo"
+            />
+            <input
+              type="text"
+              name="city"
+              ngModel
+              required
+              class="form-input"
+              placeholder="Cidade (Ex: São Paulo)"
+            />
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-1.5">
+          <label class="ml-1 text-sm font-bold text-stone-500 flex items-center gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-sage"></span>
+            Bio do Pet
+          </label>
+          <textarea
+            name="bio"
+            ngModel
+            required
+            maxlength="200"
+            appNoOffensiveWords
+            rows="4"
+            class="form-input resize-none"
+            placeholder="Conte um pouco sobre a história e as necessidades do pet..."
+          ></textarea>
+        </div>
+      </div>
+
+      <div
+        class="mt-10 flex flex-col-reverse md:flex-row justify-between items-center gap-4 border-t border-stone-100 pt-8"
+      >
+        <button
+          type="button"
+          class="text-stone-400 hover:text-stone-600 underline text-sm md:text-base cursor-pointer font-medium transition-colors"
+        >
+          Limpar formulário
+        </button>
+        <button type="submit" class="btn-primary w-full md:w-auto cursor-pointer">
+          Salvar Cadastro
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,3 +1,52 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'tailwindcss';
 
-@import "tailwindcss";
+@theme {
+  --color-pastel-green: #f0f4f1;
+  --color-sage: #a8b5a2;
+  --color-sage-dark: #96a391;
+  --color-terracotta: #d98e73;
+  --color-input-border: #e2e8f0; /* Um cinza azulado bem suave */
+}
+
+@layer components {
+  /* Estilo base do campo */
+  .form-input {
+    @apply w-full block rounded-2xl px-4 py-3.5 
+           bg-white text-stone-700 shadow-sm
+           border-2 border-input-border 
+           placeholder:text-stone-300
+           transition-all duration-200 outline-none;
+  }
+
+  /* Estilo do campo quando é clicado */
+  .form-input:focus {
+    @apply border-sage ring-4 ring-sage/10 bg-white;
+  }
+
+  /* Estados Automáticos do Angular (TDF) */
+
+  /* 1. Inválido e já interagido: Borda vermelha pastel */
+  input.ng-invalid.ng-touched,
+  select.ng-invalid.ng-touched,
+  textarea.ng-invalid.ng-touched {
+    @apply border-red-200 bg-red-50/30 focus:border-red-300 focus:ring-red-100;
+  }
+
+  /* 2. Válido e modificado: Borda verde sálvia para dar feedback positivo */
+  input.ng-valid.ng-dirty,
+  select.ng-valid.ng-dirty {
+    @apply border-sage/40;
+  }
+
+  /* Estilo para Radio Buttons (Dando cor ao círculo) */
+  input[type='radio'] {
+    @apply w-4 h-4 text-sage border-stone-300 focus:ring-sage focus:ring-2;
+  }
+
+  .btn-primary {
+    @apply bg-sage hover:bg-sage-dark text-white font-bold 
+           px-8 py-4 rounded-2xl transition-all 
+           disabled:opacity-40 disabled:grayscale
+           shadow-lg shadow-sage/20 active:scale-95;
+  }
+}
