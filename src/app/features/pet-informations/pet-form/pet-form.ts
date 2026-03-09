@@ -6,6 +6,4 @@ import { Component } from '@angular/core';
   templateUrl: './pet-form.html',
   styleUrl: './pet-form.css',
 })
-export class PetForm {
-
-}
+export class PetForm {}
