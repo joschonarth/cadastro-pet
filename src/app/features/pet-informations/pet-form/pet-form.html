@@ -205,10 +205,23 @@
                 ngModel
                 #shelterName="ngModel"
                 required
+                appShelterNameValidator
               />
 
+              @if (shelterName.status === 'PENDING') {
+                <p class="text-amber-500 text-xs font-medium ml-1">
+                  🐾 Verificando disponibilidade do abrigo...
+                </p>
+              }
+
               @if ((shelterName.touched || petForm.submitted) && shelterName.invalid) {
-                <p class="text-terracotta text-xs font-medium ml-1">🐾 O abrigo é obrigatório.</p>
+                @if (shelterName.hasError('required')) {
+                  <p class="text-terracotta text-xs font-medium ml-1">🐾 O abrigo é obrigatório.</p>
+                } @else if (shelterName.hasError('shelterAlreadyExists')) {
+                  <p class="text-terracotta text-xs font-medium ml-1">
+                    🐾 O abrigo não está disponível.
+                  </p>
+                }
               }
             </div>
 
