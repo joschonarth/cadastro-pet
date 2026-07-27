@@ -1,59 +1,106 @@
-# AdocaoPetTeste
+<div align="center">
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.0.
+# 🐾 Cadastro Pet
 
-## Development server
+_Formulário para cadastro de pets._
 
-To start a local development server, run:
+<img src="https://img.shields.io/github/last-commit/joschonarth/cadastro-pet?style=default&logo=git&logoColor=white&color=a8b5a2&labelColor=27272a" alt="last-commit">
+<img src="https://img.shields.io/github/languages/top/joschonarth/cadastro-pet?style=default&color=a8b5a2&labelColor=27272a" alt="repo-top-language">
+<img src="https://img.shields.io/github/languages/count/joschonarth/cadastro-pet?style=default&color=a8b5a2&labelColor=27272a" alt="repo-language-count">
+
+---
+
+📃 [Sobre](#-sobre)&nbsp;&nbsp;•&nbsp;&nbsp;
+🛠️ [Tecnologias](#️-tecnologias)&nbsp;&nbsp;•&nbsp;&nbsp;
+✨ [Funcionalidades](#-funcionalidades)&nbsp;&nbsp;•&nbsp;&nbsp;
+🚀 [Como rodar](#-como-rodar)&nbsp;&nbsp;
+
+</div>
+
+---
+
+## 📃 Sobre
+
+O **Cadastro Pet** é uma aplicação web para cadastro de pets, desenvolvida com **Angular** e **TypeScript**. O formulário permite registrar diversas informações sobre o animal, contando com **validações personalizadas** para garantir a consistência dos dados informados. Ao final do preenchimento, a aplicação gera automaticamente um resumo com todas as informações do pet cadastrado.
+
+O formulário foi construído utilizando **Template-Driven Forms** do Angular, e o projeto segue uma arquitetura **Feature-Based**, organizando o código por domínio para facilitar a manutenção e a escalabilidade.
+
+---
+
+## 🛠️ Tecnologias
+
+- 🅰️ **[Angular](https://angular.dev/)** — Framework para construção de aplicações web robustas e escaláveis.
+- 🟦 **[TypeScript](https://www.typescriptlang.org/)** — Tipagem estática e segurança em tempo de desenvolvimento.
+- 🎨 **[TailwindCSS](https://tailwindcss.com/)** — Framework CSS utility-first para estilização e responsividade.
+- 🔄 **[RxJS](https://rxjs.dev/)** — Programação reativa com observables para gerenciamento de estado e eventos.
+- 📋 **Template-Driven Forms** — Construção de formulários diretamente no template, com diretivas como `ngModel` e validações personalizadas.
+- 🏗️ **Feature-Based Architecture** — Organização do projeto por domínio para facilitar manutenção e escalabilidade.
+
+---
+
+## ✨ Funcionalidades
+
+- [x] 🐾 Cadastro de pets com informações detalhadas
+- [x] ✅ Validações personalizadas dos campos do formulário
+- [x] 📄 Geração automática de resumo do pet cadastrado
+- [x] 🎨 Interface responsiva e estilizada com TailwindCSS
+
+---
+
+## 🚀 Como rodar
+
+### 📋 Pré-requisitos
+
+- 🟩 [Node.js 18+](https://nodejs.org/)
+- 🅰️ [Angular CLI](https://angular.dev/tools/cli)
+
+### 🔧 Instalação
+
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/joschonarth/cadastro-pet.git
+   ```
+2. Acesse a pasta do projeto:
+   ```bash
+   cd cadastro-pet
+   ```
+3. Instale as dependências:
+   ```bash
+   npm install
+   ```
+
+### ▶️ Execução
+
+Inicie o servidor de desenvolvimento:
 
 ```bash
-ng serve
+npm run start
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Acesse **[http://localhost:4200](http://localhost:4200)** no navegador.
 
-## Code scaffolding
+### 🏗️ Build de produção
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Gere o build otimizado:
 
 ```bash
-ng generate component component-name
+npm run build
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+---
 
-```bash
-ng generate --help
-```
+## ⭐ Apoie este Projeto
 
-## Building
+Se curtiu o projeto, deixe uma ⭐ aqui no GitHub — isso ajuda muito!
 
-To build the project run:
+---
 
-```bash
-ng build
-```
+<div align="center">
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Feito com ♥ por **[João Otávio Schonarth](https://github.com/joschonarth)**
 
-## Running unit tests
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/joschonarth)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/joschonarth)
+[![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:joschonarth@gmail.com)
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+</div>
