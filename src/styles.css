@@ -23,6 +23,16 @@
     @apply border-sage ring-4 ring-sage/10 bg-white;
   }
 
+  /* Estilo base do radio button */
+  .form-radio {
+    @apply w-4 h-4 accent-sage border-2 border-stone-300 rounded-full cursor-pointer;
+  }
+
+  /* Estilo do radio button quando é clicado */
+  .form-radio:focus {
+    @apply ring-sage;
+  }
+
   /* Estados Automáticos do Angular (TDF) */
 
   /* 1. Inválido e já interagido: Borda vermelha pastel */
@@ -41,9 +51,12 @@
     @apply border-sage/40;
   }
 
-  /* Estilo para Radio Buttons (Dando cor ao círculo) */
-  input[type='radio'] {
-    @apply w-4 h-4 text-sage border-stone-300 focus:ring-sage focus:ring-2;
+  /* 3. Inválido para Radio Buttons: Borda vermelha e remoção do fundo pastel */
+  input[type='radio'].ng-invalid.ng-touched,
+  form.ng-submitted input[type='radio'].ng-invalid {
+    /* appearance-none remove o estilo nativo, então precisamos do rounded-full */
+    @apply appearance-none w-4 h-4 border-2 border-terracotta
+         bg-white outline-none ring-2 ring-terracotta/20 transition-all;
   }
 
   .btn-primary {

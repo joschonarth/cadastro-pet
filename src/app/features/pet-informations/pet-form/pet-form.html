@@ -41,24 +41,42 @@
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <select class="form-input" name="species" ngModel #species="ngModel" required>
-              <option value="" disabled selected>Espécie</option>
-              <option value="Cão">Cão</option>
-              <option value="Gato">Gato</option>
-              <option value="Pássaro">Pássaro</option>
-            </select>
+            <div class="flex flex-col gap-1.5">
+              <select class="form-input" name="species" ngModel #species="ngModel" required>
+                <option value="" disabled selected>Espécie</option>
+                <option value="Cão">Cão</option>
+                <option value="Gato">Gato</option>
+                <option value="Pássaro">Pássaro</option>
+              </select>
 
-            <input
-              type="number"
-              class="form-input"
-              placeholder="Idade (anos)"
-              name="age"
-              ngModel
-              #age="ngModel"
-              min="0"
-              max="30"
-              required
-            />
+              @if ((species.touched || petForm.submitted) && species.invalid) {
+                <p class="text-terracotta text-xs font-medium ml-1">🐾 A espécie é obrigatória.</p>
+              }
+            </div>
+
+            <div class="flex flex-col gap-1.5">
+              <input
+                type="number"
+                class="form-input"
+                placeholder="Idade (anos)"
+                name="age"
+                ngModel
+                #age="ngModel"
+                min="0"
+                max="30"
+                required
+              />
+
+              @if ((age.touched || petForm.submitted) && age.invalid) {
+                @if (age.hasError('min')) {
+                  <p class="text-terracotta text-xs font-medium ml-1">🐾 A idade mínima é 0.</p>
+                } @else if (age.hasError('max')) {
+                  <p class="text-terracotta text-xs font-medium ml-1">🐾 A idade máxima é 30.</p>
+                } @else if (age.hasError('required')) {
+                  <p class="text-terracotta text-xs font-medium ml-1">🐾 A idade é obrigatória.</p>
+                }
+              }
+            </div>
           </div>
         </div>
 
@@ -89,10 +107,11 @@
               >
                 <input
                   type="radio"
-                  class="w-4 h-4 accent-sage border-stone-300 focus:ring-sage"
+                  class="form-radio"
                   name="size"
                   value="small"
                   ngModel
+                  #size="ngModel"
                   required
                 />
                 Pequeno
@@ -102,7 +121,7 @@
               >
                 <input
                   type="radio"
-                  class="w-4 h-4 accent-sage border-stone-300 focus:ring-sage"
+                  class="form-radio"
                   name="size"
                   value="medium"
                   ngModel
@@ -113,16 +132,17 @@
               <label
                 class="flex items-center gap-2 cursor-pointer text-sm text-stone-600 font-medium"
               >
-                <input
-                  type="radio"
-                  class="w-4 h-4 accent-sage border-stone-300 focus:ring-sage"
-                  name="size"
-                  value="large"
-                  ngModel
-                  required
-                />
+                <input type="radio" class="form-radio" name="size" value="large" ngModel required />
                 Grande
               </label>
+            </div>
+
+            <div class="mt-1.5">
+              @if ((size.touched || petForm.submitted) && size.invalid) {
+                <p class="text-terracotta text-xs font-medium ml-1">
+                  🐾 O porte do pet é obrigatório.
+                </p>
+              }
             </div>
           </div>
 
@@ -176,24 +196,37 @@
             Informações do Abrigo
           </p>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <input
-              type="text"
-              class="form-input"
-              placeholder="Nome do Abrigo"
-              name="shelterName"
-              ngModel
-              #shelterName="ngModel"
-              required
-            />
-            <input
-              type="text"
-              class="form-input"
-              placeholder="Cidade (Ex: São Paulo)"
-              name="city"
-              ngModel
-              #city="ngModel"
-              required
-            />
+            <div class="flex flex-col gap-1.5">
+              <input
+                type="text"
+                class="form-input"
+                placeholder="Nome do Abrigo"
+                name="shelterName"
+                ngModel
+                #shelterName="ngModel"
+                required
+              />
+
+              @if ((shelterName.touched || petForm.submitted) && shelterName.invalid) {
+                <p class="text-terracotta text-xs font-medium ml-1">🐾 O abrigo é obrigatório.</p>
+              }
+            </div>
+
+            <div class="flex flex-col gap-1.5">
+              <input
+                type="text"
+                class="form-input"
+                placeholder="Cidade (Ex: São Paulo)"
+                name="city"
+                ngModel
+                #city="ngModel"
+                required
+              />
+
+              @if ((city.touched || petForm.submitted) && city.invalid) {
+                <p class="text-terracotta text-xs font-medium ml-1">🐾 A cidade é obrigatória.</p>
+              }
+            </div>
           </div>
         </div>
 
@@ -212,6 +245,10 @@
             maxlength="200"
             required
           ></textarea>
+
+          @if ((bio.touched || petForm.submitted) && bio.invalid) {
+            <p class="text-terracotta text-xs font-medium ml-1">🐾 A bio é obrigatória.</p>
+          }
         </div>
       </div>
 
