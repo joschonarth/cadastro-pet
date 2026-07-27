@@ -19,6 +19,10 @@ _Formulário para cadastro de pets._
 
 ---
 
+<img width="1920" height="1437" alt="screencapture-localhost-4200-pet-registration-2026-07-27-00_10_47" src="https://github.com/user-attachments/assets/076acdb2-bc84-4374-9341-05164237d946" />
+
+---
+
 ## 📃 Sobre
 
 O **Cadastro Pet** é uma aplicação web para cadastro de pets, desenvolvida com **Angular** e **TypeScript**. O formulário permite registrar diversas informações sobre o animal, contando com **validações personalizadas** para garantir a consistência dos dados informados. Ao final do preenchimento, a aplicação gera automaticamente um resumo com todas as informações do pet cadastrado.
