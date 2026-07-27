@@ -11,10 +11,6 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./features/pet-informations/pet-summary/pet-summary').then((m) => m.PetSummary),
   },
-  {
-    path: 'playground',
-    loadChildren: () => import('./playground/playground.routes').then((m) => m.playgroundRoutes),
-  },
   { path: '', redirectTo: 'pet-registration', pathMatch: 'full' },
   { path: '**', redirectTo: 'pet-registration', pathMatch: 'full' },
 ];
