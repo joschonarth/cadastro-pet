@@ -9,7 +9,7 @@
       </p>
     </header>
 
-    <form>
+    <form #petForm="ngForm" (ngSubmit)="onSubmit(petForm)">
       <div class="space-y-8">
         <div class="space-y-4">
           <div class="flex flex-col gap-1.5">
@@ -17,23 +17,42 @@
               <span class="w-1.5 h-1.5 rounded-full bg-sage"></span>
               Nome do Pet
             </label>
-            <input type="text" class="form-input" placeholder="Como ele se chama?" />
-            @if(true) {
-            <p class="text-terracotta text-xs font-medium ml-1">
-              🐾 O nome é obrigatório (mín. 3 letras).
-            </p>
+            <input
+              type="text"
+              class="form-input"
+              placeholder="Como ele se chama?"
+              name="petName"
+              ngModel
+              #petName="ngModel"
+              required
+              minlength="3"
+            />
+            @if (true) {
+              <p class="text-terracotta text-xs font-medium ml-1">
+                🐾 O nome é obrigatório (mín. 3 letras).
+              </p>
             }
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <select class="form-input">
+            <select class="form-input" name="species" ngModel #species="ngModel" required>
               <option value="" disabled selected>Espécie</option>
-              <option value="dog">Cão</option>
-              <option value="cat">Gato</option>
-              <option value="bird">Pássaro</option>
+              <option value="Cão">Cão</option>
+              <option value="Gato">Gato</option>
+              <option value="Pássaro">Pássaro</option>
             </select>
 
-            <input type="number" class="form-input" placeholder="Idade (anos)" />
+            <input
+              type="number"
+              class="form-input"
+              placeholder="Idade (anos)"
+              name="age"
+              ngModel
+              #age="ngModel"
+              min="0"
+              max="30"
+              required
+            />
           </div>
         </div>
 
@@ -50,6 +69,8 @@
             <input
               type="checkbox"
               class="w-5 h-5 accent-sage text-sage border-stone-300 rounded focus:ring-sage"
+              name="vaccinated"
+              ngModel
             />
             <span class="text-sm text-stone-700 font-bold">Pet já está vacinado?</span>
           </label>
@@ -60,25 +81,46 @@
               <label
                 class="flex items-center gap-2 cursor-pointer text-sm text-stone-600 font-medium"
               >
-                <input type="radio" class="w-4 h-4 accent-sage border-stone-300 focus:ring-sage" />
+                <input
+                  type="radio"
+                  class="w-4 h-4 accent-sage border-stone-300 focus:ring-sage"
+                  name="size"
+                  value="small"
+                  ngModel
+                  required
+                />
                 Pequeno
               </label>
               <label
                 class="flex items-center gap-2 cursor-pointer text-sm text-stone-600 font-medium"
               >
-                <input type="radio" class="w-4 h-4 accent-sage border-stone-300 focus:ring-sage" />
+                <input
+                  type="radio"
+                  class="w-4 h-4 accent-sage border-stone-300 focus:ring-sage"
+                  name="size"
+                  value="medium"
+                  ngModel
+                  required
+                />
                 Médio
               </label>
               <label
                 class="flex items-center gap-2 cursor-pointer text-sm text-stone-600 font-medium"
               >
-                <input type="radio" class="w-4 h-4 accent-sage border-stone-300 focus:ring-sage" />
+                <input
+                  type="radio"
+                  class="w-4 h-4 accent-sage border-stone-300 focus:ring-sage"
+                  name="size"
+                  value="large"
+                  ngModel
+                  required
+                />
                 Grande
               </label>
             </div>
           </div>
 
-          <div>
+          <div ngModelGroup="temperament">
             <label class="block text-sm font-bold text-stone-500 mb-3">Temperamento</label>
             <div class="flex flex-wrap gap-6">
               <label
@@ -87,6 +129,8 @@
                 <input
                   type="checkbox"
                   class="w-4 h-4 accent-sage rounded border-stone-300 focus:ring-sage"
+                  name="docile"
+                  ngModel
                 />
                 Dócil
               </label>
@@ -96,6 +140,8 @@
                 <input
                   type="checkbox"
                   class="w-4 h-4 accent-sage rounded border-stone-300 focus:ring-sage"
+                  name="active"
+                  ngModel
                 />
                 Agitado
               </label>
@@ -105,6 +151,8 @@
                 <input
                   type="checkbox"
                   class="w-4 h-4 accent-sage rounded border-stone-300 focus:ring-sage"
+                  name="protective"
+                  ngModel
                 />
                 Protetor
               </label>
@@ -114,6 +162,7 @@
 
         <div
           class="p-4 md:p-6 bg-stone-50 rounded-2xl md:rounded-[2rem] border border-stone-200 space-y-4"
+          ngModelGroup="shelterInfo"
         >
           <p
             class="text-[10px] md:text-xs font-black uppercase tracking-widest text-stone-400 mb-2"
@@ -121,8 +170,24 @@
             Informações do Abrigo
           </p>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <input type="text" class="form-input" placeholder="Nome do Abrigo" />
-            <input type="text" class="form-input" placeholder="Cidade (Ex: São Paulo)" />
+            <input
+              type="text"
+              class="form-input"
+              placeholder="Nome do Abrigo"
+              name="shelterName"
+              ngModel
+              #shelterName="ngModel"
+              required
+            />
+            <input
+              type="text"
+              class="form-input"
+              placeholder="Cidade (Ex: São Paulo)"
+              name="city"
+              ngModel
+              #city="ngModel"
+              required
+            />
           </div>
         </div>
 
@@ -135,6 +200,11 @@
             rows="4"
             class="form-input resize-none"
             placeholder="Conte um pouco sobre a história e as necessidades do pet..."
+            name="bio"
+            ngModel
+            #bio="ngModel"
+            maxlength="200"
+            required
           ></textarea>
         </div>
       </div>
