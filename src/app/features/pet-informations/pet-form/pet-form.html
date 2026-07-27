@@ -27,10 +27,16 @@
               required
               minlength="3"
             />
-            @if (true) {
-              <p class="text-terracotta text-xs font-medium ml-1">
-                🐾 O nome é obrigatório (mín. 3 letras).
-              </p>
+            @if ((petName.touched || petForm.submitted) && petName.invalid) {
+              @if (petName.hasError('required')) {
+                <p class="text-terracotta text-xs font-medium ml-1">
+                  🐾 O nome é obrigatório (mín. 3 letras).
+                </p>
+              } @else if (petName.hasError('minlength')) {
+                <p class="text-terracotta text-xs font-medium ml-1">
+                  🐾 O nome deve ter no mínimo 3 letras.
+                </p>
+              }
             }
           </div>
 

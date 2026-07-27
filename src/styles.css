@@ -11,9 +11,9 @@
 @layer components {
   /* Estilo base do campo */
   .form-input {
-    @apply w-full block rounded-2xl px-4 py-3.5 
+    @apply w-full block rounded-2xl px-4 py-3.5
            bg-white text-stone-700 shadow-sm
-           border-2 border-input-border 
+           border-2 border-input-border
            placeholder:text-stone-300
            transition-all duration-200 outline-none;
   }
@@ -28,7 +28,10 @@
   /* 1. Inválido e já interagido: Borda vermelha pastel */
   input.ng-invalid.ng-touched,
   select.ng-invalid.ng-touched,
-  textarea.ng-invalid.ng-touched {
+  textarea.ng-invalid.ng-touched,
+  form.ng-submitted input.ng-invalid,
+  form.ng-submitted select.ng-invalid,
+  form.ng-submitted textarea.ng-invalid {
     @apply border-red-200 bg-red-50/30 focus:border-red-300 focus:ring-red-100;
   }
 
@@ -44,8 +47,8 @@
   }
 
   .btn-primary {
-    @apply bg-sage hover:bg-sage-dark text-white font-bold 
-           px-8 py-4 rounded-2xl transition-all 
+    @apply bg-sage hover:bg-sage-dark text-white font-bold
+           px-8 py-4 rounded-2xl transition-all
            disabled:opacity-40 disabled:grayscale
            shadow-lg shadow-sage/20 active:scale-95;
   }
